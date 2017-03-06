@@ -1,0 +1,8 @@
+### Place information about your pack version here.
+---
+name: brocade_mct
+description: Creates MCT configuration for Netiton devices
+version: 0.1.0
+author: Waleed Qadamani
+email: waleed.qadamani@gmail.com
+
