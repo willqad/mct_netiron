@@ -1,0 +1,6 @@
+---
+name: "create_lags"
+runner_type: "run-python"
+description: "create and tag Downlinks to Access switches"
+enabled: true
+entry_point: "create_lags.py"

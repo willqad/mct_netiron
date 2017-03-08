@@ -1,0 +1,6 @@
+---
+name: "create_session"
+runner_type: "run-python"
+description: "create session vlan, assign ips and tag ICL link"
+enabled: true
+entry_point: "create_session.py"
