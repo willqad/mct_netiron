@@ -4,6 +4,10 @@ import subprocess
 from st2actions.runners.pythonrunner import Action
 
 
+class ConnError(Exception):
+    def __init__(self):
+        Exception.__init__(self, 'One or more of your devices is not reachable')
+
 class prep_vars(Action):
 
     def __init__(self):
@@ -12,7 +16,7 @@ class prep_vars(Action):
             self._ws = self._wb['Switch Details']
 
         except IOError:
-            print "File does not exist in the right directory /opt/stackstorm/packs/brocade_mct/actions/lib"
+            print "File does not exist in the right directory /opt/stackstorm/packs/mct_netiron/actions/lib"
 
         self.ipadd_sw1 = self._ws['C7'].value
         self.ipadd_sw2 = self._ws['D7'].value
@@ -174,3 +178,46 @@ class prep_vars(Action):
                             generated_ip.append(str((int(oct_net)+val)))
             session_ips['session_ip{0}'.format(val)] = ".".join(generated_ip)
         return session_ips
+    # Check the IP address validity
+
+    def ip_valid(self):
+        _ip_list = [self.ipadd_sw1, self.ipadd_sw2]
+        for ip in _ip_list:
+            _ip_broken = ip.split('.')
+            if (len(_ip_broken) == 4) and (1 <= int(_ip_broken[0]) <= 223) and (int(_ip_broken[0]) != 127) and (int(_ip_broken[0]) != 169 or int(_ip_broken[1]) != 254) and (0 <= int(_ip_broken[1]) <= 255 and 0 <= int(_ip_broken[2]) <= 255 and 0 <= int(_ip_broken[3]) <= 255):
+                continue
+            else:
+                raise IOError("IP address shouldn't be a localhost or self assigned IP")
+
+    # Pinging The devices to ensure readability
+
+    def ip_reachable(self):
+        _ip_list = [self.ipadd_sw1, self.ipadd_sw2]
+        for ip in _ip_list:
+            # _ping_reply = subprocess.call(['ping', '-c', '2', '-w', '2', '-q', '-n', ip])
+            _ping_reply = subprocess.call(['ping', '-c4', ip])  # testing on MAC
+            print ip
+            if _ping_reply == 0:
+                pass
+            else:
+                raise ConnError()
+    # Prepare Netiron Dictionaries
+
+    def mct_devices(self):
+
+        netiron_sw1 = {
+            'device_type': 'brocade_netiron',
+            'ip': self.ipadd_sw1,
+            'username': self.user_sw1,
+            'password': self.password_sw1,
+            'port': '22'
+            }
+        netiron_sw2 = {
+            'device_type': 'brocade_netiron',
+            'ip': self.ipadd_sw2,
+            'username': self.user_sw2,
+            'password': self.password_sw2,
+            'port': '22'
+            }
+        netiron_device = [netiron_sw1, netiron_sw2]
+        return netiron_device
