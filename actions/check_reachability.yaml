@@ -1,0 +1,6 @@
+---
+name: "check_reachability"
+runner_type: "run-python"
+description: "check Swicth's IP reachability"
+enabled: true
+entry_point: "check_reachability.py"

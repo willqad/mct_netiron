@@ -1,0 +1,6 @@
+---
+name: "create_vrrpe"
+runner_type: "run-python"
+description: "check Swicth's IP reachability"
+enabled: true
+entry_point: "create_vrrpe.py"

@@ -1,14 +1,32 @@
+# Copyright 2017 Brocade Communications Systems, Inc.
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+
+#   http://www.apache.org/licenses/LICENSE-2.0
+
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 from openpyxl import load_workbook
 from more_itertools import unique_everseen
 import subprocess
 from st2actions.runners.pythonrunner import Action
+
+__all__ = [
+    'PrepVars', 'Vrrpe'
+]
 
 
 class ConnError(Exception):
     def __init__(self):
         Exception.__init__(self, 'One or more of your devices is not reachable')
 
-class prep_vars(Action):
+
+class PrepVars(Action):
 
     def __init__(self):
         try:
@@ -16,7 +34,7 @@ class prep_vars(Action):
             self._ws = self._wb['Switch Details']
 
         except IOError:
-            print "File does not exist in the right directory /opt/stackstorm/packs/mct_netiron/actions/lib"
+            print "File does not exist in the right directory /opt/stackstorm/packs/mct_netiron/actions"
 
         self.ipadd_sw1 = self._ws['C7'].value
         self.ipadd_sw2 = self._ws['D7'].value
@@ -43,6 +61,23 @@ class prep_vars(Action):
             self.kalive_port_sw2=self._ws['D16'].value
         else:
             raise IOError('No Keep-alive vlan is add in the sheet')
+
+    def lags(self):
+        # add the lag ports to two lists while making sure that ports for the lag exists on both sides
+        _sw1_lag_ports=[]
+        _sw2_lag_ports=[]
+        for rows in self._ws['C{}:C{}'.format(18,900)]:         # need to find a better solution for this
+            for cell in rows:
+                if cell.value:
+                    _sw1_lag_ports.append(str(cell.value))
+        for rows in self._ws['D{}:D{}'.format(18,900)]:         # need to find a better solution for this
+            for cell in rows:
+                if cell.value:
+                    _sw2_lag_ports.append(str(cell.value))
+        if len(_sw1_lag_ports) == len(_sw2_lag_ports):
+            return _sw1_lag_ports, _sw2_lag_ports
+        else:
+            raise IOError('There is a port miss match between the two switches')
 
     def lags_vlans(self):
         _lag_names = []
@@ -221,3 +256,45 @@ class prep_vars(Action):
             }
         netiron_device = [netiron_sw1, netiron_sw2]
         return netiron_device
+
+
+class Vrrpe(Action):
+    def __init__(self):
+        try:
+            self._wb = load_workbook(filename='details.xlsx', data_only=True)
+            self._wv = self._wb['VRRPE']
+
+        except IOError:
+            print "File does not exist in the right directory /opt/stackstorm/packs/mct_netiron/actions"
+
+    def vdetails(self):
+        ve, subnet, sw1ip, sw2ip, vip = ([] for i in range(5))
+        for rows in self._wv['A{}:A{}'.format(4,900)]:         # need to find a better solution for this
+            for cell in rows:
+                if cell.value:
+                    ve.append(str(cell.value))
+        for rows in self._wv['B{}:B{}'.format(4,900)]:         # need to find a better solution for this
+            for cell in rows:
+                if cell.value:
+                    subnet.append(str(cell.value))
+        for rows in self._wv['C{}:C{}'.format(4,900)]:         # need to find a better solution for this
+            for cell in rows:
+                if cell.value:
+                    sw1ip.append(str(cell.value))
+        for rows in self._wv['D{}:D{}'.format(4,900)]:         # need to find a better solution for this
+            for cell in rows:
+                if cell.value:
+                    sw2ip.append(str(cell.value))
+        for rows in self._wv['E{}:E{}'.format(4,900)]:         # need to find a better solution for this
+            for cell in rows:
+                if cell.value:
+                    vip.append(str(cell.value))
+
+        vrrpe_details = {
+            've':ve,
+            'subnet': subnet,
+            'sw1ip': sw1ip,
+            'sw2ip': sw2ip,
+            'vip': vip
+        }
+        return vrrpe_details
