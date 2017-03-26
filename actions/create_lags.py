@@ -48,6 +48,11 @@ class CreateLag(PrepVars):
                         net_connect.send_command_timing('no spanning-tree')
                 else:
                     pass
+            for port in zip(self.sw1p if device == devices[0] else self.sw2p):
+                print('enabling ports...')
+                net_connect.send_command_timing('interface e {0}'.format(port))
+                net_connect.send_command_timing('enable')
+                net_connect.send_command_timing('exit')
             print("writing memory...")
             net_connect.send_command_timing('write memory')
             return True
