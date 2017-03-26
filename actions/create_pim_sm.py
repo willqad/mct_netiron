@@ -13,9 +13,10 @@
 
 from netmiko import ConnectHandler
 from lib.prep_vars import PrepVars, Vrrpe
+from st2actions.runners.pythonrunner import Action
 
 
-class CreatePim(PrepVars,Vrrpe):
+class CreatePim(PrepVars,Vrrpe, Action):
 
     def __init__(self):
         super(CreatePim, self).__init__()
