@@ -13,10 +13,9 @@
 
 from netmiko import ConnectHandler
 from lib.prep_vars import PrepVars, Vrrpe
-from st2actions.runners.pythonrunner import Action
 
 
-class CreatePim(PrepVars,Vrrpe, Action):
+class CreatePim(PrepVars, Vrrpe):
 
     def __init__(self):
         super(CreatePim, self).__init__()
@@ -29,7 +28,7 @@ class CreatePim(PrepVars,Vrrpe, Action):
             net_connect.config_mode(config_command='configure terminal')
             net_connect.send_command_timing('interface loopback 10')
             net_connect.send_command_timing('port-name PIM ANYCAST')
-            if device ==devices[0]:
+            if device == devices[0]:
                 net_connect.send_command_timing('ip address 1.32.1.17/32')
             else:
                 net_connect.send_command_timing('ip address 1.32.1.18/32')

@@ -1,6 +1,6 @@
 ---
-name: "create_pim_sm
+name: "create_pim_sm"
 runner_type: "run-python"
-description: "create pim sparse with anycast over mct"
+description: "create pim sparse with anycast rp"
 enabled: true
 entry_point: "create_pim_sm.py"
