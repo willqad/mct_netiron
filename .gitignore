@@ -6,3 +6,13 @@
 .idea/modules.xml
 
 .idea/misc.xml
+
+.idea/dictionaries/willqadamani.xml
+
+*.xml
+
+actions/~$details.xlsx
+
+actions/lib/__init__.pyc
+
+actions/lib/prep_vars.pyc

@@ -44,6 +44,20 @@ class SessionRun(PrepVars):
                 net_connect.send_command_timing('no span')
             else:
                 continue
+            if device == devices[0]:
+                net_connect.send_command_timing('interface e {0}'.format(self.icl1_sw1))
+                net_connect.send_command_timing('enable')
+                net_connect.send_command_timing('exit')
+                net_connect.send_command_timing('interface e {0}'.format(self.icl2_sw1))
+                net_connect.send_command_timing('enable')
+                net_connect.send_command_timing('exit')
+            else:
+                net_connect.send_command_timing('interface e {0}'.format(self.icl1_sw2))
+                net_connect.send_command_timing('enable')
+                net_connect.send_command_timing('exit')
+                net_connect.send_command_timing('interface e {0}'.format(self.icl2_sw2))
+                net_connect.send_command_timing('enable')
+                net_connect.send_command_timing('exit')
             # ##### Create Link-Aggregation #####
             print("creating ICL link-aggregation...")
             net_connect.send_command_timing('lag ICL dynamic id 1')
