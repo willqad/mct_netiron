@@ -28,7 +28,8 @@ class ConnError(Exception):
 
 class PrepVars(Action):
 
-    def __init__(self):
+    def __init__(self, config):
+        self.config = config
         try:
             self._wb = load_workbook(filename='details.xlsx', data_only=True)
             self._ws = self._wb['Switch Details']
@@ -220,7 +221,7 @@ class PrepVars(Action):
         for ip in _ip_list:
             _ip_broken = ip.split('.')
             if (len(_ip_broken) == 4) and (1 <= int(_ip_broken[0]) <= 223) and (int(_ip_broken[0]) != 127) and (int(_ip_broken[0]) != 169 or int(_ip_broken[1]) != 254) and (0 <= int(_ip_broken[1]) <= 255 and 0 <= int(_ip_broken[2]) <= 255 and 0 <= int(_ip_broken[3]) <= 255):
-                continue
+                print(' IP addresses correct')
             else:
                 raise IOError("IP address shouldn't be a localhost or self assigned IP")
 
@@ -259,7 +260,8 @@ class PrepVars(Action):
 
 
 class Vrrpe(Action):
-    def __init__(self):
+    def __init__(self, config):
+        self.config = config
         try:
             self._wb = load_workbook(filename='details.xlsx', data_only=True)
             self._wv = self._wb['VRRPE']

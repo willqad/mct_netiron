@@ -22,3 +22,4 @@ class Reachable(PrepVars):
     def run(self):
         self.ip_valid()
         self.ip_reachable()
+        return True
