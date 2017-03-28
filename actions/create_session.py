@@ -21,8 +21,8 @@ __all__ = [
 
 class SessionRun(PrepVars):
 
-    def __init__(self):
-        super(SessionRun, self).__init__()
+    def __init__(self, config=None):
+        super(SessionRun, self).__init__(config=config)
 
     def run(self):
         devices = self.mct_devices()

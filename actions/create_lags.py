@@ -17,8 +17,8 @@ from netmiko import ConnectHandler
 
 class CreateLag(PrepVars):
 
-    def __init__(self):
-        super(CreateLag, self).__init__()
+    def __init__(self, config=None):
+        super(CreateLag, self).__init__(config=config)
         self.sw1p, self.sw2p = self.lags().__getitem__(0), self.lags().__getitem__(1)
         self.tvlans, self.utvlans = self.lags_vlans().__getitem__(1), self.lags_vlans().__getitem__(2)
         self.pnames = self.lags_vlans().__getitem__(0)

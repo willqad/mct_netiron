@@ -17,8 +17,8 @@ from lib.prep_vars import PrepVars, Vrrpe
 
 class CreatePim(PrepVars, Vrrpe):
 
-    def __init__(self):
-        super(CreatePim, self).__init__()
+    def __init__(self, config=None):
+        super(CreatePim, self).__init__(config=config)
 
     def run(self):
         devices = self.mct_devices(self)

@@ -30,7 +30,7 @@ class PrepVars(Action):
 
     def __init__(self, config = None):
         try:
-            self._wb = load_workbook(filename='details.xlsx', data_only=True)
+            self._wb = load_workbook(filename='/opt/stackstorm/packs/mct_netiron/actions/details.xlsx', data_only=True)
             self._ws = self._wb['Switch Details']
 
         except IOError:
@@ -261,7 +261,7 @@ class PrepVars(Action):
 class Vrrpe(Action):
     def __init__(self, config = None):
         try:
-            self._wb = load_workbook(filename='details.xlsx', data_only=True)
+            self._wb = load_workbook(filename='/opt/stackstorm/packs/mct_netiron/actions/details.xlsx', data_only=True)
             self._wv = self._wb['VRRPE']
 
         except IOError:

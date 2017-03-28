@@ -17,8 +17,8 @@ from netmiko import ConnectHandler
 
 class CreateKeepAlive(PrepVars):
 
-    def __init__(self):
-        super(CreateKeepAlive, self).__init__()
+    def __init__(self, config=None):
+        super(CreateKeepAlive, self).__init__(config=config)
 
     def run(self):
         devices = self.mct_devices()

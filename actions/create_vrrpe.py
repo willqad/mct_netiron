@@ -17,8 +17,8 @@ from lib.prep_vars import Vrrpe,PrepVars
 
 class CreateVrrpe(Vrrpe, PrepVars):
 
-    def __init__(self):
-        super(CreateVrrpe,self).__init__()
+    def __init__(self, config=None):
+        super(CreateVrrpe, self).__init__(config=config)
 
     def run(self):
         vrrpe = self.vdetails()
