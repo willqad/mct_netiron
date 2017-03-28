@@ -1,0 +1,351 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"de",
+				"default"
+			],
+			[
+				"bear",
+				"bear_room"
+			],
+			[
+				"gol",
+				"gold_room"
+			],
+			[
+				"num",
+				"numbers"
+			],
+			[
+				"r",
+				"raw_input"
+			],
+			[
+				"prin",
+				"print_last_words"
+			],
+			[
+				"sor",
+				"sort_words"
+			],
+			[
+				"sen",
+				"sentence"
+			],
+			[
+				"sent",
+				"sort_sentence"
+			],
+			[
+				"so",
+				"sort_words"
+			],
+			[
+				"br",
+				"break_words"
+			],
+			[
+				"start",
+				"start_point"
+			],
+			[
+				"sta",
+				"start_point"
+			],
+			[
+				"st",
+				"start_point"
+			],
+			[
+				"he",
+				"height"
+			],
+			[
+				"sub",
+				"subtract"
+			],
+			[
+				"print_a",
+				"print_a_line"
+			],
+			[
+				"c",
+				"current_line"
+			],
+			[
+				"pr",
+				"print_a_line"
+			],
+			[
+				"amoun",
+				"amount_of_cheese"
+			],
+			[
+				"amou",
+				"amount_of_crackers"
+			],
+			[
+				"amo",
+				"amount_of_cheese"
+			],
+			[
+				"cheese",
+				"cheese_cracker"
+			],
+			[
+				"print",
+				"print_two_again"
+			],
+			[
+				"pri",
+				"print_one"
+			],
+			[
+				"file",
+				"file_again"
+			],
+			[
+				"fil",
+				"file_name"
+			],
+			[
+				"wi",
+				"weight"
+			],
+			[
+				"g",
+				"get_guess"
+			],
+			[
+				"magic",
+				"magicNumber"
+			],
+			[
+				"mag",
+				"magicNumber"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 375.0,
+		"last_filter": "pack",
+		"selected_items":
+		[
+			[
+				"pack",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/willqadamani/Library/Application Support/Sublime Text 3/Packages/User/Flake8Lint.sublime-settings",
+		"/Users/willqadamani/Library/Application Support/Sublime Text 3/Packages/Python Flake8 Lint/Flake8Lint.sublime-settings",
+		"/Users/willqadamani/Desktop/brocade_mct/actions/create_cluster.yaml",
+		"/Users/willqadamani/Desktop/mct_netiron/actions/create_vrrpe.yaml",
+		"/Users/willqadamani/Desktop/mct_netiron/actions/check_reachability.yaml",
+		"/Users/willqadamani/Desktop/Major L3 Migration First TIme Tuesday Night/CORE-SW1.txt",
+		"/Users/willqadamani/Desktop/mct_netiron/actions/untitled.yaml",
+		"/Users/willqadamani/Downloads/NEPCO-LLD+mlxe_and_VDX_configuration_/NEPCO-HQ-Core",
+		"/Users/willqadamani/Desktop/pynetworkig/SSH Config/SSH-Config-Final.py",
+		"/Users/willqadamani/Desktop/HighCPUV3.py",
+		"/Users/willqadamani/Desktop/pynetworkig/configs/R5.cfg",
+		"/Users/willqadamani/Desktop/pynetworkig/configs/R4.cfg",
+		"/Users/willqadamani/Desktop/pynetworkig/configs/R2.cfg",
+		"/Users/willqadamani/Desktop/pynetworkig/configs/R1.cfg",
+		"/Users/willqadamani/Desktop/pynetworkig/configs/R3.cfg",
+		"/Users/willqadamani/Desktop/Automation/Chatbot for VDX pacl.yaml",
+		"/Users/willqadamani/Desktop/Python Practices/ex15.py",
+		"/Users/willqadamani/Desktop/Python Practices/ex15_py.txt",
+		"/Users/willqadamani/Desktop/Python Practices/ex14.py",
+		"/Users/willqadamani/Desktop/Python Practices/ex13.py",
+		"/Users/willqadamani/Desktop/Python Practices/ex12py.py",
+		"/Users/willqadamani/Desktop/Python Practices/ex11.py",
+		"/Users/willqadamani/Desktop/Python Practices/BWC VM IP address 192.168.244.129",
+		"/Users/willqadamani/Desktop/Python Practices/Wordgames.py",
+		"/Users/willqadamani/Desktop/Python Practices/Module1.py",
+		"/Users/willqadamani/Desktop/test.py",
+		"/Users/willqadamani/Documents/pybvc/tests/test_results.txt",
+		"/Users/willqadamani/Documents/pybvc/samples/sampleopenflow/demos/demo1.py",
+		"/Users/willqadamani/Documents/pybvc/samples/samplenetconf/demos/ctrl_demo1.py"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"pim",
+			"interface",
+			"access",
+			"per-por",
+			"per",
+			"acl",
+			"lag",
+			"vrrp-extended",
+			"icehouse",
+			"Demo Start"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "prep_vars.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
