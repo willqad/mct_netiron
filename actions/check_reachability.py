@@ -16,8 +16,8 @@ from lib.prep_vars import PrepVars
 
 class Reachable(PrepVars):
 
-    def __init__(self):
-        super(Reachable, self).__init__()
+    def __init__(self, config=None):
+        super(Reachable, self).__init__(config=config)
 
     def run(self):
         self.ip_valid()

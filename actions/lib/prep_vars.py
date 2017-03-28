@@ -28,8 +28,7 @@ class ConnError(Exception):
 
 class PrepVars(Action):
 
-    def __init__(self, config):
-        self.config = config
+    def __init__(self, config = None):
         try:
             self._wb = load_workbook(filename='details.xlsx', data_only=True)
             self._ws = self._wb['Switch Details']
@@ -260,8 +259,7 @@ class PrepVars(Action):
 
 
 class Vrrpe(Action):
-    def __init__(self, config):
-        self.config = config
+    def __init__(self, config = None):
         try:
             self._wb = load_workbook(filename='details.xlsx', data_only=True)
             self._wv = self._wb['VRRPE']
