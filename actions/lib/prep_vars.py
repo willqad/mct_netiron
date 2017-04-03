@@ -14,6 +14,7 @@
 from openpyxl import load_workbook
 from more_itertools import unique_everseen
 import subprocess
+
 from st2actions.runners.pythonrunner import Action
 
 __all__ = [

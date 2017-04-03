@@ -16,8 +16,8 @@ from netmiko import ConnectHandler
 
 
 class CreateCluster(PrepVars):
-    def __init__(self):
-        super(CreateCluster, self).__init__()
+    def __init__(self, config=None):
+        super(CreateCluster, self).__init__(config=config)
 
     def run(self):
         names = self.vlans().__getitem__(0)
@@ -35,15 +35,17 @@ class CreateCluster(PrepVars):
             net_connect.send_command_timing('keep-alive-vlan {0}'.format(self.kalive_vlan))
             for vlan in self.vlans():
                 net_connect.send_command_timing('member-vlan {0}'.format(vlan))
-            net_connect.send_command_timing('icl ICL ethernet {0}'.format(self.icl1_sw1 if device == devices[0]
-                                                                          else self.icl1_sw2))
-            net_connect.send_command_timing('peer {0} rbridge-id {1} icl ICL'.format(peers['session_ip2'] if device ==
-                                                                                     devices[0] else peers['session_ip1'],
-                                                                                     "2" if device == devices[1] else "1"))
+            net_connect.send_command_timing('icl ICL ethernet {0}'.format(self.icl1_sw1 if device ==
+                                                                    devices[0]else self.icl1_sw2))
+            net_connect.send_command_timing('peer {0} rbridge-id {1} icl ICL'.
+                                            format(peers['session_ip2'] if device == devices[0]
+                                            else peers['session_ip1'], "2" if device == devices[1]
+                                            else "1"))
             net_connect.send_command_timing('deploy')
 
             # ##### Creating and deploying clients #####
-            for name, port, rid in zip(names, sw1p if device == devices[0] else sw2p,range(10, 10 + len(sw1p))):
+            for name, port, rid in zip(names, sw1p if device == devices[0] else sw2p,
+                                       range(10, 10 + len(sw1p))):
                 print("creating client {0}...".format(name))
                 net_connect.send_command_timing('client "{0}" ethernet {1}'.format(name, port))
                 net_connect.send_command_timing('rbridge-id {0}'.format(rid))
